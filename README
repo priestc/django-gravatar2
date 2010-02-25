@@ -91,3 +91,6 @@ OTHER NOTES
 
 If you supply a custom default image URL, the returned gravatar tag and url will
 not have any size attributes.
+
+This app is based on the django-gravatar app by James Tauber found here:
+http://code.google.com/p/django-gravatar/
