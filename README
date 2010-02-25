@@ -1,0 +1,93 @@
+INSTALL
+=======
+
+first install django-gravatar2
+
+then add it to INSTALLED_APPS in your settings.py file
+
+QUICK START
+===========
+
+at the top of your template, add this:
+
+{% load gravatar %}
+
+then where you want to add the gravatar, use this code:
+
+{% gravatar request.user %}
+
+or replace `request.user` with another user instance. This template tag will
+return an `img` tag containing the gravatar of the passed in user instance.
+
+If you want the gravatar to be a certain size, then append the size attribute
+to the end of the tag like so:
+
+{% gravatar user 100 %}
+
+This will return a 100 by 100 pixel representation of the gravatar (default is
+80)
+
+
+REFERENCE
+=========
+
+{% gravatar user %}:                 Same as {% gravatar_img_for_user user %}
+
+{% gravatar_img_for_email email %}   Returns an img tag of the gravatar
+                                     for the passed in email address
+                                     
+{% gravatar_img_for_user user %}     Returns an img tag of the gravatar
+                                     for the passed in user instance
+                                     
+the above all return something like this:
+
+<img src="http://gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802" />
+
+if you just want the URL part, then use the tags below:
+
+{% gravatar_url_for_user user %}     Returns the URL of the gravatar
+                                     for the passed in user instance
+
+{% gravatar_url_for_email email %}   Returns the URL of the gravatar
+                                     for the passed email address
+
+these tags will return something like this:
+
+http://gravatar.com/avatar/3b3be63a4c2a439b013787725dfce802
+
+OPTIONS
+=======
+
+In the setting.py file, you can add these options:
+
+GRAVATAR_DEFAULT_IMAGE -> the name of the default image to return if no gravatar
+                          is found. Possible options:
+                          
+                          "404"       -a 404
+                          "monsterid" -an image of a randomly generated monster
+                          "identicon" -randomly generated geometric pattern
+                          "wavatar"   -similar to the monsterid
+                          
+                          if you leave this blank, it returns the gravatar logo
+                          
+                          you can also supply the url of a custom image. Enter
+                          the full url without encoding, such as:
+                          
+                          "http://example.com/images/default.png"
+                          
+                          for more information, consult:
+                          http://en.gravatar.com/site/implement/url
+
+                         
+GRAVATAR_URL_PREFIX ->    By default this is just "http://www.gravatar.com/"
+                          but it is useful to change this to
+                          "https://secure.gravatar.com/" if you want
+                          the gravar to show up on an encrypted page without
+                          the browser issuing any warnings to the user.
+
+
+OTHER NOTES
+===========
+
+If you supply a custom default image URL, the returned gravatar tag and url will
+not have any size attributes.
