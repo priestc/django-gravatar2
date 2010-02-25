@@ -1,9 +1,11 @@
 INSTALL
 =======
 
-first install django-gravatar2
+first install django-gravatar2 like so:
 
-then add it to INSTALLED_APPS in your settings.py file
+pip install git+http://github.com/nbv4/django-gravatar2.git#egg=django_gravatar2
+
+then add 'gravatar'  to INSTALLED_APPS in your settings.py file
 
 QUICK START
 ===========
